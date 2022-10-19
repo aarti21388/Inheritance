@@ -1,0 +1,35 @@
+import string
+import random
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+        print("Person constructor")
+    def my_name(self):
+        print("My name is "+self.name)
+
+class Athlets:
+    def __init__(self,teacher):
+        self.teacher = teacher
+        print("Athlets Constructor")
+
+    def my_name(self):
+        print("My name is "+ self.teacher)
+    
+class Student(Person,Athlets):
+    def __init__(self,name,age,student_id,gpa,teacher):
+        Person.__init__(self,name,age)
+        Athlets.__init__(self,teacher)
+        Athlets.my_name(self)
+        self.student_id = student_id
+        self.gpa = gpa
+        print("Student Constructor")
+
+Name=''.join(random.choices(string.ascii_uppercase, k=7))
+s=Student(Name,25,1,4,"professor Withcorr")
+print(s.student_id)
+print(s.age)
+print(s.name)
+print(s.teacher)
+print(s.gpa)
+s.my_name() # will call person methond
